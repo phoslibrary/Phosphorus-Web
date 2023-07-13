@@ -5,6 +5,9 @@ import { MantineTheme, Sx, Box, Container, Group, UnstyledButton, Image, Burger 
 import { NavMobile } from "./NavMobile";
 import { ButtonBase, ButtonVariant, T_ComponentSize, Text } from "phosphorus-core";
 
+
+
+// TYPES
 export type BaseNavProps = {
   /** A list of all buttons to display in this Navbar */
   buttons: ReactNode[];
@@ -35,6 +38,10 @@ export type NavBaseProps = BaseNavProps & {
   mobileNavPosition?: "bottom" | "left" | "right" | "top";
 }
 
+
+
+// COMPONENTS
+/** A basic Nav that has support for desktop and mobile nav variants, automatically adapting according to the breakpoint. */
 export function NavBase(props: NavBaseProps) {
 
   // Hooks

@@ -2,10 +2,6 @@ import { Container, Drawer, Image, UnstyledButton, Sx, MantineTheme, Burger, Spa
 import { BaseNavProps } from "./NavBase";
 import { ButtonBase, ButtonVariant, Text } from "phosphorus-core";
 
-/** NAVMOBILE - 13/07/2023
- * A nav component designed to be used on mobile devices.
- */
-
 
 
 // TYPES
