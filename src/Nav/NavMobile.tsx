@@ -41,7 +41,7 @@ export function NavMobile(props: NavMobileProps) {
   return (
     <Drawer
       opened={props.opened}
-      onClose={() => props.onClose}
+      onClose={props.onClose}
       position={props.position}
       withCloseButton={false}
       zIndex={9999}

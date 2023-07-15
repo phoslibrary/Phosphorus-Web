@@ -4,7 +4,7 @@ import { CSSProperties, ReactNode } from "react";
 
 
 // TYPES
-export type BaseSectionProps = { 
+export type BaseSectionProps = {
   children: ReactNode;
 
   /** The height of this section */
@@ -18,7 +18,7 @@ export type BaseSectionProps = {
   style?: CSSProperties;
 }
 
-export type SectionPageProps = BaseSectionProps & { 
+export type SectionPageProps = BaseSectionProps & {
   /** Horizontal padding */
   paddingH?: string | number;
   /** Vertical padding */
@@ -40,18 +40,19 @@ export function SectionPage(props: SectionPageProps) {
 
   // Styles
   const backgroundStyle: Sx = (theme: MantineTheme) => ({
-    backgroundColor: props.backgroundColor ? `${
-      theme.colors[props.backgroundColor][4]
-    }${
-      props.backgroundOpacity ? props.backgroundOpacity : "FF"
-    }` : null,
+    backgroundColor: props.backgroundColor ? `${theme.colors[props.backgroundColor][4]
+      }${props.backgroundOpacity ? props.backgroundOpacity : "FF"
+      }` : null,
 
-    padding: `${props.paddingV || 0}px ${props.paddingH || 0}px`
+    padding: `${props.paddingV !== undefined ? props.paddingV : 20
+      }px ${props.paddingH !== undefined ? props.paddingH : 0
+      }px`
   });
   const containerStyle: Sx = (theme: MantineTheme) => ({
-    height: props.grow ? "100vh" : props.height || "auto",
+    height: props.grow ? "100vh" :
+      props.height !== undefined ? props.height : "auto",
     padding: theme.spacing.md,
-    gap: props.gap || theme.spacing.md,
+    gap: props.gap !== undefined ? props.gap : theme.spacing.md,
     boxSizing: "border-box",
     flex: 1,
 

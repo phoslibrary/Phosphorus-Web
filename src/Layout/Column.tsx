@@ -49,14 +49,13 @@ export const Column = function Column(props: ColumnProps) {
   const columnStyle: Sx = (theme: MantineTheme) => ({
     width: GetBreakpointValue(props.width, viewportSize),
     height: GetBreakpointValue(props.height, viewportSize) || "100%",
-
     flexGrow: props.grow,
 
     display: "flex",
     flexDirection: GetBreakpointValue(props.direction, viewportSize) || "column",
     alignItems: GetBreakpointValue(props.align, viewportSize),
     justifyContent: GetBreakpointValue(props.justify, viewportSize) || "center",
-    gap: props.gap || theme.spacing.sm,
+    gap: props.gap !== undefined ? props.gap : theme.spacing.sm,
   });
 
   return (
@@ -86,7 +85,7 @@ Column.Container = function ColumnContainer(props: ColumnContainerProps) {
     flexDirection: GetBreakpointValue(props.direction, viewportSize) || "row",
     alignItems: GetBreakpointValue(props.align, viewportSize),
     justifyContent: GetBreakpointValue(props.justify, viewportSize) || "center",
-    gap: props.gap || theme.spacing.sm,
+    gap: props.gap !== undefined ? props.gap : theme.spacing.sm,
   });
 
   return (

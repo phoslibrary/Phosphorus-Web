@@ -24,11 +24,13 @@ export function GetBreakpointValue(
     height: number
   }
 ) {
+  if (!variant) return null;
   if (viewportSize.width <= MOBILE_BREAKPOINT) {
-    if (viewportSize.height >= TALL_BREAKPOINT && variant.mobileTall)
-      return variant.mobileTall || variant.mobile || variant.default;
-    else if (viewportSize.height < TALL_BREAKPOINT && variant.mobile)
-      return variant.mobile || variant.default;
+    if (viewportSize.height >= TALL_BREAKPOINT)
+      return variant.mobileTall !== undefined ? variant.mobileTall :
+        variant.mobile !== undefined ? variant.mobile : variant.default;
+    else if (viewportSize.height < TALL_BREAKPOINT)
+      return variant.mobile !== undefined ? variant.mobile : variant.default;
   } else
     return variant.default;
 }

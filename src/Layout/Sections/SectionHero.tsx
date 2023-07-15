@@ -34,13 +34,14 @@ export function SectionHero(props: SectionHeroProps) {
   let bgOverlay = null;
   if (props.overlay) {
     let gradient = GetBreakpointValue(props.overlay, viewportSize);
-    bgOverlay = `linear-gradient(${gradient.deg || 45}deg, ${gradient.from}, ${gradient.to})`;
+    bgOverlay = `linear-gradient(${gradient.deg !== undefined ? gradient.deg : 45}deg, ${gradient.from}, ${gradient.to})`;
   }
 
   // Styles
   const bgStyle: Sx = (theme: MantineTheme) => ({
     maxWidth: "100vw",
-    height: props.grow ? "100%" : props.height || "100vh",
+    height: props.grow ? "100%" :
+      props.height !== undefined ? props.height : "100vh",
     position: "absolute",
     zIndex: -2,
 
@@ -49,7 +50,8 @@ export function SectionHero(props: SectionHeroProps) {
   });
   const overlayStyle: Sx = (theme: MantineTheme) => ({
     maxWidth: "100vw",
-    height: props.grow ? "100%" : props.height || "100vh",
+    height: props.grow ? "100%" :
+      props.height !== undefined ? props.height : "100vh",
     position: "absolute",
     zIndex: -1,
 
