@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { useViewportSize, useWindowScroll, useDisclosure } from "@mantine/hooks";
 import { MOBILE_BREAKPOINT } from "../Layout/Layout";
-import { MantineTheme, Sx, Box, Container, Group, UnstyledButton, Image, Burger } from "@mantine/core";
+import { MantineTheme, Sx, Box, Container, Group, Image, Burger } from "@mantine/core";
 import { NavMobile } from "./NavMobile";
-import { ButtonBase, ButtonVariant, T_ComponentSize, Text } from "phosphorus-core";
+import { BaseButtonProps, ButtonBase, ButtonVariant, T_ComponentSize, Text } from "phosphorus-core";
 
 
 
@@ -14,8 +14,8 @@ export type BaseNavProps = {
 
   /** The favicon for this Navbar */
   favicon: string;
-  /** An `onClick` event for when the user clicks on the favicon */
-  faviconClick?: void;
+  /** All additional props for the favicon's button component */
+  faviconButtonProps?: BaseButtonProps;
 
   /** An optional typeface to show */
   typeface?: string;
@@ -101,8 +101,14 @@ export function NavBase(props: NavBaseProps) {
           sx={containerStyle}
         >
           {/* Favicon & typeface */}
-          <UnstyledButton
-            onClick={() => props.faviconClick}
+          <ButtonBase
+            style={{
+              padding: 0,
+              backgroundColor: "#FFFFFF00",
+              color: "unset",
+              ...props.faviconButtonProps.style
+            }}
+            {...props.faviconButtonProps}
           >
             <Group>
               <Image
@@ -120,7 +126,7 @@ export function NavBase(props: NavBaseProps) {
                 </Text>
               }
             </Group>
-          </UnstyledButton>
+          </ButtonBase>
 
           {/* Buttons */}
           {isMobile ?

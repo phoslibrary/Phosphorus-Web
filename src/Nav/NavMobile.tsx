@@ -1,4 +1,4 @@
-import { Container, Drawer, Image, UnstyledButton, Sx, MantineTheme, Burger, Space, Stack } from "@mantine/core";
+import { Container, Drawer, Image, Sx, MantineTheme, Burger, Space, Stack } from "@mantine/core";
 import { BaseNavProps } from "./NavBase";
 import { ButtonBase, ButtonVariant, Text } from "phosphorus-core";
 
@@ -41,7 +41,7 @@ export function NavMobile(props: NavMobileProps) {
   return (
     <Drawer
       opened={props.opened}
-      onClose={props.onClose}
+      onClose={() => props.onClose()}
       position={props.position}
       withCloseButton={false}
       zIndex={9999}
@@ -51,18 +51,26 @@ export function NavMobile(props: NavMobileProps) {
         px="sm"
         sx={containerStyle}
       >
-        <UnstyledButton
-          onClick={() => props.faviconClick}
-        >
+        <ButtonBase
+            square
+            style={
+              {
+                backgroundColor: "#FFFFFF00",
+                ...props.faviconButtonProps.style
+              }
+            }
+            {...props.faviconButtonProps}
+            onClick={props.faviconButtonProps.onClick ? props.faviconButtonProps.onClick : () => props.onClose()}
+          >
           <Image
             src={props.favicon}
             height={25}
             width="auto"
           />
-        </UnstyledButton>
+        </ButtonBase>
 
         <ButtonBase
-          onClick={props.opened ? close : open}
+          onClick={() => props.onClose()}
           square
           component="div"
           variant={ButtonVariant.Subtle}
@@ -85,6 +93,7 @@ export function NavMobile(props: NavMobileProps) {
 
       <Stack
         sx={buttonDrawerStyle}
+        onClick={() => props.onClose()}
       >
         {props.buttons}
       </Stack>

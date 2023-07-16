@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { T_ComponentSize } from "phosphorus-core";
+import { BaseButtonProps, T_ComponentSize } from "phosphorus-core";
 export type BaseNavProps = {
     /** A list of all buttons to display in this Navbar */
     buttons: ReactNode[];
     /** The favicon for this Navbar */
     favicon: string;
-    /** An `onClick` event for when the user clicks on the favicon */
-    faviconClick?: void;
+    /** All additional props for the favicon's button component */
+    faviconButtonProps?: BaseButtonProps;
     /** An optional typeface to show */
     typeface?: string;
     typefaceFamily?: string;
