@@ -1,3 +1,3 @@
-export { BaseSectionProps, SectionPageProps, SectionPage } from "./SectionPage";
-export { SectionHeroProps, SectionHero } from "./SectionHero";
+export { type BaseSectionProps, type SectionPageProps, SectionPage } from "./SectionPage";
+export { type SectionHeroProps, SectionHero } from "./SectionHero";
 //# sourceMappingURL=index.d.ts.map
