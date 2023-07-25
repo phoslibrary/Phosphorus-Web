@@ -1,6 +1,6 @@
 {
   "name": "phosphorus-web",
-  "version": "0.1.28",
+  "version": "0.1.2",
   "description": "",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -24,6 +24,6 @@
     "@emotion/react": "^11.11.1",
     "@mantine/core": "^6.0.16",
     "@mantine/hooks": "^6.0.16",
-    "phosphorus-core": "^0.0.2"
+    "phosphorus-core": "^0.1.2"
   }
 }
